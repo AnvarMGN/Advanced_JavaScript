@@ -18,33 +18,49 @@ class Library {
     #books = [];
 
     constructor(initialBooks = []) {
-        // Проверка на дубликаты.
-        const uniqueBooks = new Set(initialBooks);// Добавим коллекцию Set где будут храниться уникальные элементы переданного массива.
-        // Затем сравним размер полученной коллекции с длинной переданного массива.
-        // Если длина коллекции не равна длинне массива, значит в списке есть дубликаты.
-        if (uniqueBooks.size !== initialBooks.length) {
-            throw new Error(`В списке книг библиотеки есть дубликаты.`);
+        try {
+            // Проверка на дубликаты.
+            const uniqueBooks = new Set(initialBooks);// Добавим коллекцию Set где будут храниться уникальные элементы переданного массива.
+            // Затем сравним размер полученной коллекции с длинной переданного массива.
+            // Если длина коллекции не равна длинне массива, значит в списке есть дубликаты.
+            if (uniqueBooks.size !== initialBooks.length) {
+                throw new Error(`В списке книг библиотеки есть дубликаты.`);
+            }
+            this.#books = [...uniqueBooks];//Запишем в массив уникальную коллекцию использую spread оператора
+        } catch (error) {
+            console.log(error.message);
         }
-        this.#books = [...uniqueBooks];//Запишем в массив уникальную коллекцию использую spread оператора
     }
 
     get allBooks() {
-        return [...this.#books];
+        console.log('Список книг:');
+        for (let i = 0; i < this.#books.length; i++) {
+            console.log(`${i + 1}. ${this.#books[i]}`);
+        }
+        // return [...this.#books];
     }
 
     addBook(title) {
-        if (this.#books.includes(title)) {
-            throw new Error(`Книга с названием '${title}' уже существует. `);
+        try {
+            if (this.#books.includes(title)) {
+                throw new Error(`Книга с названием '${title}' уже существует. `);
+            }
+            this.#books.push(title);
+        } catch (error) {
+            console.log(error.message);
         }
-        this.#books.push(title);
     }
 
     removeBook(title) {
-        const index = this.#books.indexOf(title);// получаем индекс передаваемого названия
-        if (index === -1) {// если индексОф возвращает -1, значит искомой книги нет.
-            throw new Error(`Книга с названием '${title}' не найдена.`)
+        try {
+            const index = this.#books.indexOf(title);// получаем индекс передаваемого названия
+            if (index === -1) {// если индексОф возвращает -1, значит искомой книги нет.
+                throw new Error(`Книга с названием '${title}' не найдена.`)
+            }
+            this.#books.splice(index, 1);// в противном случае, удаляем найденный элемент
+        } catch (error) {
+            console.log(error.message);
         }
-        this.#books.splice(index, 1);// в противном случае, удаляем найденный элемент
     }
 
     hasBook(title) {
@@ -55,15 +71,15 @@ class Library {
 
 const mylibrary = new Library(['Война и мир.', 'Эдоэкология здоровья.', 'Мастер и Маргарита.']);
 
-console.log(mylibrary.allBooks);
+mylibrary.allBooks;
 console.log(' ');
 
 mylibrary.addBook('20000 лье под водой.');
-console.log(mylibrary.allBooks);
+mylibrary.allBooks;
 console.log(' ');
 
 mylibrary.removeBook('Война и мир.');
-console.log(mylibrary.allBooks);
+mylibrary.allBooks;
 console.log(' ');
 
 console.log(mylibrary.hasBook('Мастер и Маргарита.'));
