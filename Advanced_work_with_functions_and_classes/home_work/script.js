@@ -18,12 +18,14 @@ class Library {
     #books = [];
 
     constructor(initialBooks = []) {
-        // Проверка на дубликаты
-        const uniqueBooks = new Set(initialBooks);
+        // Проверка на дубликаты.
+        const uniqueBooks = new Set(initialBooks);// Добавим коллекцию Set где будут храниться уникальные элементы переданного массива.
+        // Затем сравним размер полученной коллекции с длинной переданного массива.
+        // Если длина коллекции не равна длинне массива, значит в списке есть дубликаты.
         if (uniqueBooks.size !== initialBooks.length) {
             throw new Error(`В списке книг библиотеки есть дубликаты.`);
         }
-        this.#books = [...uniqueBooks];
+        this.#books = [...uniqueBooks];//Запишем в массив уникальную коллекцию использую spread оператора
     }
 
     get allBooks() {
@@ -38,15 +40,15 @@ class Library {
     }
 
     removeBook(title) {
-        const index = this.#books.indexOf(title);
-        if (index === -1) {
+        const index = this.#books.indexOf(title);// получаем индекс передаваемого названия
+        if (index === -1) {// если индексОф возвращает -1, значит искомой книги нет.
             throw new Error(`Книга с названием '${title}' не найдена.`)
         }
-        this.#books.splice(index, 1);
+        this.#books.splice(index, 1);// в противном случае, удаляем найденный элемент
     }
 
     hasBook(title) {
-        return this.#books.includes(title);
+        return this.#books.includes(title);// возвращает тру или фолс
     }
 }
 
