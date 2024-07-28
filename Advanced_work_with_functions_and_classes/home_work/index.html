@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <script defer src="script.js"></script> -->
+        <script defer src="script2.js"></script>
+    </head>
+    <body>
+        <div class="product__box">
+            <!-- <h2 class="product__name">Переменная с названием товара</h2> -->
+            <label>
+                Выберите товар:
+                <select class="product__select">
+                    <option value="Apple iPhone 13">Apple iPhone 13</option>
+                    <option value="Samsung Galaxy Z Fold 3">Samsung Galaxy Z Fold 3</option>
+                    <option value="Sony PlayStation 5">Sony PlayStation 5</option>
+                </select>
+            </label>
+            <div class="product__feedback">
+                <label for="feedback__text">Оставьте отзыв о товаре:</label>
+                <br>
+                <textarea class="feedback__input" id="feedback__text" rows="10" cols="60"></textarea>
+                <br>
+                <button class="feedback__addButton">Добавить отзыв</button>
+            </div>
+        </div>
+        <div class="feedback">
+            <h2 class="feedback__title">Отзывы о товаре:</h2>
+            <ul class="feedback__list">
+                <!-- <li class="feedback__element">
+                    <h3 class="feedback__productName">Переменная с названием товара</h3>
+                    <p id="#" class="feedback__item">Переменная text</p>
+                </li> -->
+            </ul>
+        </div>
+    </body>
 </html>
