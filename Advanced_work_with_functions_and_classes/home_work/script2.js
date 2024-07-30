@@ -80,7 +80,7 @@ const initialData = [
 
 let countId = 0;//cчётчик отзывов
 
-function startFeedback(){
+function startFeedback() {
     const listElem = document.querySelector('.feedback__list');//Находим список
 
     // Загружаем массив отзывов в список.
@@ -110,12 +110,12 @@ function addFeedback() {
                 throw new Error('Постарайтесь уместить отзыв в диапазоне от 50 до 500 символов.')
             }
 
+            // Создаём объект с новым отзывом
+            // Не стал использовать проверки на дубли и запись отзыва в массив к конкретному товару
             const newProduct = inputProductElem.value;
             const newFeedbackText = inputElem.value;
             countId += 1;
 
-            // Создаём объект с новым отзывом
-            // Не стал использовать проверки на дубли и запись отзыва в массив к конкретному товару
             const newFeedback = {
                 product: newProduct,
                 reviews: [
@@ -138,6 +138,10 @@ function addFeedback() {
 
             // initialData.push(newFeedback);
             // console.log(initialData);
+
+            // Очистка полей ввода
+            inputProductElem.value = '';
+            inputElem.value = '';
 
         } catch (error) {
             alert(error.message);

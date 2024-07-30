@@ -13,6 +13,7 @@
             <label>
                 Выберите товар:
                 <select class="product__select">
+                    <option value=""> -</option>
                     <option value="Apple iPhone 13">Apple iPhone 13</option>
                     <option value="Samsung Galaxy Z Fold 3">Samsung Galaxy Z Fold 3</option>
                     <option value="Sony PlayStation 5">Sony PlayStation 5</option>
@@ -21,7 +22,12 @@
             <div class="product__feedback">
                 <label for="feedback__text">Оставьте отзыв о товаре:</label>
                 <br>
-                <textarea class="feedback__input" id="feedback__text" rows="10" cols="60"></textarea>
+                <textarea
+                    class="feedback__input"
+                    id="feedback__text"
+                    rows="10"
+                    cols="60"
+                ></textarea>
                 <br>
                 <button class="feedback__addButton">Добавить отзыв</button>
             </div>
@@ -32,8 +38,7 @@
                 <!-- <li class="feedback__element">
                     <h3 class="feedback__productName">Переменная с названием товара</h3>
                     <p id="#" class="feedback__item">Переменная text</p>
-                </li> -->
-            </ul>
+                </li> --></ul>
         </div>
     </body>
 </html>
