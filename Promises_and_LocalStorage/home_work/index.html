@@ -8,14 +8,41 @@
         <script defer src="./JS/script.js"></script>
     </head>
     <body>
+        <!-- 
+        Урок 3. Промисы. Хранилище
+        Создайте интерактивную веб-страницу для оставления и просмотра отзывов о продуктах. Пользователи могут добавлять отзывы о различных продуктах и просматривать добавленные отзывы.
+
+        Страница добавления отзыва:
+
+        Поле для ввода названия продукта.
+        Текстовое поле для самого отзыва.
+        Кнопка "Добавить отзыв", которая сохраняет отзыв о продукте в LocalStorage.
+
+        Страница просмотра отзывов:
+
+        Показывает список всех продуктов, о которых были оставлены отзывы.
+        При клике на название продукта отображается список всех отзывов по этому продукту.
+        Возможность удаления отзыва (при нажатии на кнопку "Удалить" рядом с отзывом, данный отзыв удаляется из LocalStorage).
+        -->
         <section class="homework_localstorage center">
             <article class="add-comment">
                 <h1 class="add-comment__title">
                     Добавьте отзыв о товаре:
                 </h1>
                 <form action="#" class="add-comment__form">
-                    <input required type="text" placeholder="Введите название товара" class="add-comment__product-input">
-                    <textarea required placeholder="Напишете отзыв о товаре" class="add-comment__comment-iput" rows="10" cols="60"></textarea>
+                    <input
+                        required
+                        type="text"
+                        placeholder="Введите название товара"
+                        class="add-comment__product-input"
+                    >
+                    <textarea
+                        required
+                        placeholder="Напишете отзыв о товаре"
+                        class="add-comment__comment-iput"
+                        rows="10"
+                        cols="60"
+                    ></textarea>
                     <button class="add-comment__button">Добавить отзыв</button>
                 </form>
             </article>
