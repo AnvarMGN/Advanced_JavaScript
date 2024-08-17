@@ -54,9 +54,9 @@ function deleteComment() {
         // родительский элемент, соответствующий указанному CSS-селектору
         if (target.closest('.comment__button')) {
 
-            const productTitle = target.closest('.comment__button').parentElement.previousElementSibling.firstElementChild.textContent;
+            const productTitle = target.closest('.comment__button').parentElement.parentElement.firstElementChild.firstElementChild.textContent;
             // console.log(`Название товара: ${productTitle}`);
-
+          
             const commentValue = target.closest('.comment__button').previousElementSibling.textContent;
             // console.log(`Текст отзыва: ${commentValue}`);
 
@@ -71,11 +71,12 @@ function deleteComment() {
 
             for (let i = 0; i < commentSize; i++) {
                 let prodName = localStorage.key(i);// получаем название товара
-
+                
                 if (productTitle === prodName) {
                     // console.log(`Название товара: ${prodName}`);
+        
                     let prodComment = JSON.parse(localStorage.getItem(productTitle));// получаем массив отзывов по заданному ключу
-
+                    console.log(prodComment);
                     if (prodComment.length > 1) {
                         formBlock.remove();// удаляем отзыв с кнопкой
 
